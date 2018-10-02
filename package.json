@@ -26,5 +26,10 @@
   },
   "os": [
     "!win32"
-  ]
+  ],
+  "devDependencies": {
+    "node-cleanup": "^2.1.2",
+    "node-notifier": "^5.2.1",
+    "underscore": "^1.9.1"
+  }
 }

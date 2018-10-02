@@ -1,36 +1,36 @@
 #!/usr/bin/env node
 
-'use strict'
+'use strict';
 
-const pkg = require('./package.json')
+const pkg = require('./package.json');
 
-const agartha = require('agartha')
+const program = require('commander');
 
-const program = require('commander')
+const hephaestus = require('hephaestus');
 
-const Commands = require('agartha-cli-commands')
+const Commands = require('hephaestus-cli-commands');
 
 function before (obj, method, fn) {
-  var old = obj[method]
+  var old = obj[method];
   obj[method] = function () {
-    fn.call(this)
-    old.apply(this, arguments)
-  }  
+    fn.call(this);
+    old.apply(this, arguments);
+  }
 }
 
 // set process title
-process.title = 'agartha-cli'
+process.title = 'hephaestus-cli';
 
 before(program, 'outputHelp', function () {
-  this.allowUnknownOption()
-})
+  this.allowUnknownOption();
+});
 
 program
   .version(pkg.version)
-  .usage('[options] [op]')
+  .usage('[options] [op]');
 
-new Commands(program)
+new Commands(program);
 
 if (!process.argv.slice(2).length) {
-  program.outputHelp()
+  program.outputHelp();
 }
