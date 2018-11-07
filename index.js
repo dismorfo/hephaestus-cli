@@ -3,11 +3,8 @@
 'use strict';
 
 const pkg = require('./package.json');
-
 const program = require('commander');
-
 const hephaestus = require('hephaestus');
-
 const Commands = require('hephaestus-cli-commands');
 
 function before (obj, method, fn) {
