@@ -16,8 +16,8 @@
   "license": "MIT",
   "dependencies": {
     "commander": "2.18.0",
-    "hephaestus": "https://github.com/dismorfo/hephaestus.git",
-    "hephaestus-cli-commands": "https://github.com/dismorfo/hephaestus-cli-commands.git"
+    "hephaestus": "git+https://github.com/dismorfo/hephaestus.git",
+    "hephaestus-cli-commands": "git+https://github.com/dismorfo/hephaestus-cli-commands.git"
   },
   "main": "index.js",
   "preferGlobal": false,
