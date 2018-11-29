@@ -24,8 +24,8 @@
   "engines": {
     "node": ">= 8.0"
   },
-  "bin" : 
-    { "hephaestus-cli" : "./bin/hephaestus-cli" } 
+  "bin": {
+    "hephaestus-cli": "./bin/hephaestus-cli.js"
   },
   "os": [
     "!win32"
