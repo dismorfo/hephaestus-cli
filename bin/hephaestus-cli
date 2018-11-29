@@ -1,0 +1,62 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const pkg = require('./package.json');
+const program = require('commander');
+const HephaestusCommands = require('hephaestus-cli-commands');
+
+/**
+ * Install a before function
+ * Taken from express-cli
+ * See: https://github.com/expressjs/generator/blob/master/bin/express-cli.js
+ */
+function before (obj, method, fn) {
+  var old = obj[method];
+  obj[method] = function () {
+    fn.call(this);
+    old.apply(this, arguments);
+  }
+}
+
+/**
+ * Install an around function
+ * Taken from express-cli
+ * See: https://github.com/expressjs/generator/blob/master/bin/express-cli.js
+ */
+function around (obj, method, fn) {
+  var old = obj[method]
+  obj[method] = function () {
+    var args = new Array(arguments.length)
+    for (var i = 0; i < args.length; i++) args[i] = arguments[i]
+    return fn.call(this, old, args)
+  }
+}
+
+// set process title
+process.title = pkg.name;
+
+/**
+ * Install an around function
+ * Taken from express-cli
+ * See: https://github.com/expressjs/generator/blob/master/bin/express-cli.js
+ */
+before(program, 'outputHelp', function () {
+  this.allowUnknownOption();
+});
+
+around(program, 'optionMissingArgument', function (fn, args) {
+  program.outputHelp()
+  fn.apply(this, args);
+  return { args: [], unknown: [] }
+});
+
+program
+  .version(pkg.version)
+  .usage('[options] [op]');
+
+new HephaestusCommands(program);
+
+if (!process.argv.slice(2).length) {
+  program.outputHelp();
+}
