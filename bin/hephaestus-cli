@@ -2,7 +2,7 @@
 
 'use strict';
 
-const pkg = require('./package.json');
+const pkg = require('../package.json');
 const program = require('commander');
 const HephaestusCommands = require('hephaestus-cli-commands');
 
