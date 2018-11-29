@@ -25,7 +25,7 @@
     "node": ">= 8.0"
   },
   "bin": {
-    "express": "./bin/hephaestus-cli.js"
+    "hephaestus-cli": "./bin/hephaestus-cli.js"
   },  
   "os": [
     "!win32"
