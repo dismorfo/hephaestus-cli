@@ -1,27 +1,21 @@
 ## Installation
 
 ```sh
-$ git clone https://github.com/NYULibraries/agartha-cli
-$ cd agartha-cli && npm install
+$ npm install --save hephaestus-cli
 ```
 
 ## Quick Start
 
-The quickest way to get started with express is to utilize the executable `agartha(1)` to generate an application as shown below:
+The quickest way to get started with express is to utilize the executable `hephaestus-cli` to generate an application as shown below:
 
-## Create the app:
+## Create demo app:
 
 ```bash
-$ agartha create foo -r generic
+$ ./node_modules/hephaestus-cli/bin/hephaestus-cli hephaestus-site-bare
 ```
 ## Build site:
 
 ```bash
-$ cd foo && agartha forge
+$ ./node_modules/hephaestus-cli/bin/hephaestus-cli forge
 ```
 ## Command Line Options
-
-This generator can also be further configured with the following command line flags.
-
-    -r, --relic [relic]     Which relic to use
-    -f, --force             force on non-empty directory    
