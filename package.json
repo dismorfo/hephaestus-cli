@@ -23,8 +23,5 @@
   "preferGlobal": false,
   "engines": {
     "node": ">= 8.0"
-  },
-  "os": [
-    "!win32"
-  ]
+  }
 }
